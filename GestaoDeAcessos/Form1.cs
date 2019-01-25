@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace GestaoDeAcessos
 {
     public partial class Form1 : Form
     {
+
+        string connectionString = @"Data Source=users.db";
+
         private Sistema pagnet = new Sistema("Pagnet");
         private Sistema debnet = new Sistema("Debnet");
         private Sistema esegVida = new Sistema("EsegVida");
@@ -29,6 +33,8 @@ namespace GestaoDeAcessos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CarregaDados();
+
             perfisPagnet[0] = new Perfil("Consulta", pagnet);
             perfisPagnet[1] = new Perfil("Admin", pagnet);
             perfisDebnet[0] = new Perfil("Financeiro", debnet);
@@ -39,6 +45,30 @@ namespace GestaoDeAcessos
             comboBoxSistema.Items.Add(pagnet.Nome);
             comboBoxSistema.Items.Add(debnet.Nome);
             comboBoxSistema.Items.Add(esegVida.Nome);
+        }
+
+        private void CarregaDados()
+        {
+            dataGridView1.DataSource = LeDados<SQLiteConnection, SQLiteDataAdapter>("Select * from Usuarios_Sistemas");
+        }
+
+        public DataTable LeDados<S, T>(string query) where S : IDbConnection, new()
+                                           where T : IDbDataAdapter, IDisposable, new()
+        {
+            using (var conn = new S())
+            {
+                using (var da = new T())
+                {
+                    using (da.SelectCommand = conn.CreateCommand())
+                    {
+                        da.SelectCommand.CommandText = query;
+                        da.SelectCommand.Connection.ConnectionString = connectionString;
+                        DataSet ds = new DataSet(); //conn é aberto pelo dataadapter
+                        da.Fill(ds);
+                        return ds.Tables[0];
+                    }
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
