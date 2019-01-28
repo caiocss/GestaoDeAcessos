@@ -33,7 +33,14 @@ namespace GestaoDeAcessos.Classes
         //Método que carrega os dados do banco no dataGrid do formulário (Select no banco)
         public void CarregaDados(DataGridView dataGrid) //Colocar como parametro o dataGrid onde aparecerá os dados
         {
-            dataGrid.DataSource = LeDados<SQLiteConnection, SQLiteDataAdapter>("Select * from Usuarios_Sistemas");
+            dataGrid.DataSource = LeDados<SQLiteConnection, SQLiteDataAdapter>(
+                "Select * from Usuarios_Sistemas");
+        }
+
+        public void CarregaDadosPesquisa(DataGridView dataGrid, string matricula)
+        {
+            dataGrid.DataSource = LeDados<SQLiteConnection, SQLiteDataAdapter>(
+                "Select * from Usuarios_Sistemas WHERE matricula =" + matricula);
         }
 
         //Método que adiciona novos usúários na tabela

@@ -138,5 +138,22 @@ namespace GestaoDeAcessos
         {
             
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(txtBuscar.Text == "")
+                MessageBox.Show("Campo de busca vazio");
+            else
+            {
+                database.CarregaDadosPesquisa(dataGridView1, txtBuscar.Text);
+                txtBuscar.Text = "";
+            }
+        }
+
+        private void btnLimparBusca_Click(object sender, EventArgs e)
+        {
+            database.CarregaDados(dataGridView1);
+            txtBuscar.Text = "";
+        }
     }
 }

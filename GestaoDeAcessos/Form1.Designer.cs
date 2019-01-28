@@ -48,15 +48,9 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
-            this.UsersListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnLimparBusca = new System.Windows.Forms.Button();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.form1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
@@ -88,12 +82,12 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(792, 352);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.btnLimparBusca);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.btnBuscar);
             this.tabPage1.Controls.Add(this.label2);
@@ -125,6 +119,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -156,7 +151,6 @@
             this.tabPage2.Controls.Add(this.txtLogin);
             this.tabPage2.Controls.Add(this.txtNome);
             this.tabPage2.Controls.Add(this.btnAdicionar);
-            this.tabPage2.Controls.Add(this.UsersListView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -258,46 +252,6 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // UsersListView
-            // 
-            this.UsersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
-            this.UsersListView.Location = new System.Drawing.Point(6, 106);
-            this.UsersListView.Name = "UsersListView";
-            this.UsersListView.Size = new System.Drawing.Size(497, 182);
-            this.UsersListView.TabIndex = 0;
-            this.UsersListView.UseCompatibleStateImageBehavior = false;
-            this.UsersListView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Sistema";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nome";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Login";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Perfil";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Status";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Matricula";
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
@@ -317,6 +271,16 @@
             this.tabPage4.Size = new System.Drawing.Size(784, 326);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Exportar Relatórios";
+            // 
+            // btnLimparBusca
+            // 
+            this.btnLimparBusca.Location = new System.Drawing.Point(323, 22);
+            this.btnLimparBusca.Name = "btnLimparBusca";
+            this.btnLimparBusca.Size = new System.Drawing.Size(75, 23);
+            this.btnLimparBusca.TabIndex = 4;
+            this.btnLimparBusca.Text = "Limpar";
+            this.btnLimparBusca.UseVisualStyleBackColor = true;
+            this.btnLimparBusca.Click += new System.EventHandler(this.btnLimparBusca_Click);
             // 
             // form1BindingSource
             // 
@@ -361,13 +325,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.ListView UsersListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -381,6 +338,7 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.BindingSource form1BindingSource;
         private System.Windows.Forms.BindingSource form1BindingSource1;
+        private System.Windows.Forms.Button btnLimparBusca;
     }
 }
 
