@@ -7,7 +7,7 @@ namespace GestaoDeAcessos.Classes
 {
     public class ConnectDatabase
     {
-        //Abre conexão com o banco de dados.
+        //Atributo que guarda a conexão com o banco de dados.
         private string _connectionString = @"Data Source=users.db";
 
         //Le os dados do banco de dados
@@ -30,12 +30,11 @@ namespace GestaoDeAcessos.Classes
             }
         }
 
-        //Método que carrega os dados do banco no dataGrid do formulário (Da Select no banco)
+        //Método que carrega os dados do banco no dataGrid do formulário (Select no banco)
         public void CarregaDados(DataGridView dataGrid) //Colocar como parametro o dataGrid onde aparecerá os dados
         {
             dataGrid.DataSource = LeDados<SQLiteConnection, SQLiteDataAdapter>("Select * from Usuarios_Sistemas");
         }
-
 
         //Método que adiciona novos usúários na tabela
         public void AdicionaUsuario(Usuario usuario)
@@ -69,7 +68,17 @@ namespace GestaoDeAcessos.Classes
                     }
                 }
             }            
-        }   
+        }
+        
+        public void alterarUsuario()
+        {
+
+        }
+
+        public void removerUsuario()
+        {
+
+        }
 
     }
 }
