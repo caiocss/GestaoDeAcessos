@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestaoDeAcessos
+namespace GestaoDeAcessos.Classes
 {
     public class Usuario
     {
